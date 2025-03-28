@@ -1,4 +1,3 @@
-
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
@@ -39,13 +38,22 @@ $ npm run test:cov
 ```
 
 ## step1
- create reposotories  
- create test 
+
+create reposotories  
+ create test
+
 ## step2
- create services
-  create test 
+
+create services
+create test
+
 ## step3
- create  controller 
- create test 
 
+create controller
+create test
 
+## build image
+
+docker build -t mon-api-node .
+
+docker compose up
