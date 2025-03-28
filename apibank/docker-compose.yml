@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres_container
+    restart: always
+    environment:
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: dev
+      POSTGRES_DB: bdev
+    ports:
+      - "5432:5432"
+    networks:
+      - mynetwork
+
+  node_api:
+    build: .
+    container_name: node_api
+    restart: always
+    environment:
+      DATABASE_URL: "postgresql://dev:dev@postgres:5432/bdev?schema=public"
+      PORT: 3000
+    ports:
+      - "3000:3000"
+      - "8080:8080"
+    depends_on:
+      - postgres
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
