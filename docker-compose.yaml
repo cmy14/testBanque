@@ -1,0 +1,13 @@
+version: '3.1'
+services:
+  testbankback:
+    image: postgres:12.2
+    deploy:
+      restart_policy:
+        condition: none
+    environment:
+      POSTGRES_PASSWORD: dev
+      POSTGRES_USER: dev
+      POSTGRES_DB: bdev
+    ports:
+      - 5432:5432
